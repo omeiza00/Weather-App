@@ -82,10 +82,11 @@ function App() {
 
   return (
     <div className="app">
-
-    <SearchBar onLocationSelect = {handleLocationSelect}/>
-
       {loading && <Loading />}
+
+    {!loading && <SearchBar onLocationSelect = {handleLocationSelect}/>}
+
+      
       {error && <p className="error">{error}</p>}
 
       {!loading && !error && weatherData && (

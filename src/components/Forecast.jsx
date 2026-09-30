@@ -6,7 +6,7 @@ import '../styles/Forecast.css'
 function Forecast({forecastData}) {
   return (
     <section className="forecast-section">
-        <p className="section-label"><ArrowBendDoubleUpRightIcon size={24} weight="bold" />5-Day Forecast</p>
+        <p className="forecast-section-label"><ArrowBendDoubleUpRightIcon size={24} weight="bold" />5-Day Forecast</p>
 
         <div className="forecast-list">
             {forecastData.map((day) => (

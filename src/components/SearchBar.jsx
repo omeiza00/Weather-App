@@ -89,11 +89,11 @@ function SearchBar({ onLocationSelect }) {
         />
         {query && (
           <button type="button" className="clear-btn" onClick={handleClear}>
-            <XIcon size={16} weight="bold" />
+            <XIcon size={18} weight="bold" />
           </button>
         )}
         <button type="submit" className="search-btn">
-          <MagnifyingGlassIcon size={18} weight="bold" />
+          <MagnifyingGlassIcon size={22} weight="bold" />
         </button>
       </form>
       {searchLoading && <p className="search-process-text">Searching...</p>}

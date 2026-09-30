@@ -1,6 +1,6 @@
 
 .stats-section {
-  margin-bottom: 1.75rem;
+  margin-bottom: 2.75rem;
 }
 
 .stats-grid {
@@ -18,15 +18,25 @@
 }
 
 .stat-value {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 0.3rem;
 }
 
 .stat-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.section-label{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 480px) {
