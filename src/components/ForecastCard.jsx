@@ -1,0 +1,18 @@
+import { formatDate, getWeatherDescription, formatTemperature } from "../utils/weatherUtils"
+import '../styles/ForecastCard.css'
+
+function ForecastCard({date, maxTemp, minTemp, weatherCode}) {
+  return (
+    <div className="forecast-card">
+        <p className="forecast-date">{formatDate(date)}</p>
+        <p className="forecast-condition">{getWeatherDescription(weatherCode)}</p>
+
+        <div className="forecast-temps">
+            <span className="temp-max">H: {formatTemperature(maxTemp)}</span>
+            <span className="temp-min">L: {formatTemperature(minTemp)}</span>
+        </div>
+    </div>
+  )
+}
+
+export default ForecastCard
