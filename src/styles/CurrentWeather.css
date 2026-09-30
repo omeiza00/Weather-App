@@ -80,3 +80,9 @@
   font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.5);
 }
+
+@media (max-width: 480px) {
+  .weather-status-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

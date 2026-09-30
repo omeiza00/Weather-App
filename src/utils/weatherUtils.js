@@ -22,6 +22,17 @@ const WEATHER_CODE = {
   99: "Thunderstorm with heavy hail",
 };
 
+export function getWeatherCategory(code) {
+  if (code === 0 || code === 1) return "sunny";
+  if (code === 2 || code === 3) return "cloudy";
+  if (code === 45 || code === 48) return "foggy";
+  if (code >= 51 && code <= 67) return "rainy";
+  if (code >= 71 && code <= 77) return "snowy";
+  if (code >= 80 && code <= 82) return "rainy";
+  if (code >= 95) return "thunderstorm";
+  return "cloudy"; 
+}
+
 
 export function getWeatherDescription(code) {
     return WEATHER_CODE[code] || "Unknown Condition";

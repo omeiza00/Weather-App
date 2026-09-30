@@ -9,3 +9,11 @@
   overflow-x: auto;
   padding-bottom: 0.5rem;
 }
+
+@media (max-width: 480px) {
+  .forecast-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow-x: visible;
+  }
+}

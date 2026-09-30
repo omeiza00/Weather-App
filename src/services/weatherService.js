@@ -1,12 +1,12 @@
 const WEATTHER_API = "https://api.open-meteo.com/v1/forecast";
 const GEOCODING_API = " https://geocoding-api.open-meteo.com/v1/search";
 
-export async function getWeatherData(longitude, latitude) {
+export async function getWeatherData(latitude, longitude) {
   const url = 
   `${WEATTHER_API}?latitude=${latitude}&longitude=${longitude}` + 
   `&current=temperature_2m,wind_speed_10m,weather_code,apparent_temperature,relative_humidity_2m,uv_index,visibility` + 
   `&daily=weathercode,temperature_2m_max,temperature_2m_min` + 
-  `&forecast_days=5` +
+  `&forecast_days=6` +
   `&timezone=auto`;
 
   console.log('Fetching:', url)

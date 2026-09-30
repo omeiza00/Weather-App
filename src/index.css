@@ -119,13 +119,13 @@ code {
   box-sizing: border-box;
 }
 
-body {
+/* body {
   font-family: 'Montserrat', sans-serif;
   min-height: 100vh;
   background: url("/backgrounds/rainy.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background-size: cover; */
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
   /* padding: 10px auto 10px auto; */
-}
+/* } */

@@ -2,8 +2,8 @@ import "./App.css";
 
 import { useState, useEffect } from "react";
 import { getWeatherData } from "./services/weatherService";
-import { getUserLocation } from "./services/locationService";
-import { transformDailyForecast } from "./utils/weatherUtils";
+import { getUserLocation, reverseGeocode } from "./services/locationService";
+import { getWeatherCategory, transformDailyForecast } from "./utils/weatherUtils";
 
 import Loading from "./components/Loading";
 import CurrentWeather from "./components/CurrentWeather";
@@ -17,6 +17,16 @@ function App() {
   const [locationName, setLocationName] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if(!weatherData) return;
+
+    const category = getWeatherCategory(weatherData.current.weather_code)
+
+    document.body.className = document.body.className.split(' ').filter((cls) => !cls.startsWith('bg-')).join(' ');
+
+    document.body.classList.add(`bg-${category}`);
+  }, [weatherData])
 
   const loadWeather = async (latitude, longitude, name) => {
     setLoading(true);
@@ -45,7 +55,14 @@ function App() {
     const init = async () => {
       try {
         const { latitude, longitude } = await getUserLocation();
-        await loadWeather(latitude, longitude, "Your location");
+
+        let locationName = 'Your current location';
+        try {
+          locationName = await reverseGeocode(latitude, longitude)
+        } catch {
+          // ..
+        }
+        await loadWeather(latitude, longitude, locationName);
       } catch (error) {
         setLoading(false);
         if (error.code === 1) {
@@ -72,7 +89,7 @@ function App() {
       {error && <p className="error">{error}</p>}
 
       {!loading && !error && weatherData && (
-        <>
+        <div className="weather-content-fade">
           <CurrentWeather
             weather={weatherData.current}
             feelsLike={weatherData.current.apparent_temperature}
@@ -88,7 +105,7 @@ function App() {
           
           <Forecast forecastData={transformDailyForecast(weatherData.daily)}/>
 
-         </>
+         </div>
       )}
     </div>
   );

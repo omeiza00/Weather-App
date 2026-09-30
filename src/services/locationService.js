@@ -15,3 +15,19 @@ export function getUserLocation() {
         });
     })
 }
+
+
+export async function reverseGeocode(latitude, longitude) {
+  const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("Could not determine location name.");
+  }
+
+  const data = await response.json();
+
+
+  return data.city || data.locality || data.principalSubdivision || "Unknown location";
+}

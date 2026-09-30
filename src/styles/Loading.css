@@ -1,0 +1,28 @@
+/* styles/Loading.css */
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  gap: 1rem;
+}
+
+.loading-icon {
+  color: #ffffff;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}

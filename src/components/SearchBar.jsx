@@ -74,6 +74,7 @@ function SearchBar({ onLocationSelect }) {
     setResults([]);
     setQuery("");
     setShowResults(false);
+    setHasSearched(false)
   };
 
   return (
@@ -100,6 +101,7 @@ function SearchBar({ onLocationSelect }) {
 
       {!searchLoading &&
         !searchError &&
+        showResults &&
         results.length === 0 &&
         hasSearched && <p className="no-location-text">No locations found.</p>
     }
