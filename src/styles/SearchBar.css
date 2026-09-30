@@ -135,3 +135,18 @@
 .search-result:hover {
   background: rgba(255, 122, 61, 0.15);
 }
+
+.clear-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-btn:hover {
+  color: #ffffff;
+}

@@ -58,9 +58,9 @@
 }
 
 .weather-status-details {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 0.75rem 0.5rem;
 }
 
 .status-detail {
