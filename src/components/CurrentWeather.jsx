@@ -4,49 +4,62 @@ import {
 } from "../utils/weatherUtils";
 import WeatherIcon from "./WeatherIcon";
 import { ArrowBendDoubleUpRightIcon } from "@phosphor-icons/react";
-import '../styles/CurrentWeather.css'
+import "../styles/CurrentWeather.css";
 
-
-function CurrentWeather({ weather, feelsLike, locationName }) {
+function CurrentWeather({ weather, feelsLike, locationName, unit }) {
   return (
     <section className="current-weather">
       <div>
-        <p className="current-weather-label"><ArrowBendDoubleUpRightIcon size={24} weight="bold" />Current Weather Status</p>
-
-       <div className="weather-temp-div">
-        <WeatherIcon code={weather.weather_code} size={56} className="condition-icon" />
-        <h1 className="temperature">
-          {formatTemperature(weather.temperature_2m)}
-        </h1>
-        <p className="temp-condition">
-          {getWeatherDescription(weather.weather_code)}
+        <p className="current-weather-label">
+          <ArrowBendDoubleUpRightIcon size={20} weight="bold" />
+          Current Weather Status
         </p>
+
+        <div className="weather-temp-div">
+          <WeatherIcon
+            code={weather.weather_code}
+            size={56}
+            className="condition-icon"
+          />
+          <h1 className="temperature">
+            {formatTemperature(weather.temperature_2m, unit)}
+          </h1>
+          <p className="temp-condition">
+            {getWeatherDescription(weather.weather_code)}
+          </p>
         </div>
 
         <div className="weather-status-details">
-            <div className="status-detail">
-                <p className="status-detail-value location-value" title={locationName}>{locationName}</p>
-                <p className="status-detail-label">Location</p>
-            </div>
+          <div className="status-detail">
+            <p
+              className="status-detail-value location-value"
+              title={locationName}
+            >
+              {locationName}
+            </p>
+            <p className="status-detail-label">Location</p>
+          </div>
 
-            <div className="status-detail">
-                <p className="status-detail-value">{weather.wind_speed_10m} km/h</p>
-                <p className="status-detail-label">Wind</p>
-            </div>
+          <div className="status-detail">
+            <p className="status-detail-value">{weather.wind_speed_10m} km/h</p>
+            <p className="status-detail-label">Wind</p>
+          </div>
 
-            <div className="status-detail">
-                <p className="status-detail-value">{formatTemperature(feelsLike)}</p>
-                <p className="status-detail-label">Feels Like</p>
-            </div>
+          <div className="status-detail">
+            <p className="status-detail-value">
+              {formatTemperature(feelsLike, unit)}
+            </p>
+            <p className="status-detail-label">Feels Like</p>
+          </div>
 
-            <div className="status-detail">
-                <p className="status-detail-value">{getWeatherDescription(weather.weather_code)}</p>
-                <p className="status-detail-label">Condition</p>
-            </div>
+          <div className="status-detail">
+            <p className="status-detail-value">
+              {getWeatherDescription(weather.weather_code)}
+            </p>
+            <p className="status-detail-label">Condition</p>
+          </div>
         </div>
       </div>
-
-     
     </section>
   );
 }

@@ -1,24 +1,27 @@
-/* styles/Loading.css */
-
 .loading {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 0;
+  padding: 3rem 1.5rem;
   color: rgba(255, 255, 255, 0.75);
-  font-size: 2rem;
+  font-size: 0.9rem;
   gap: 1rem;
-  font-weight: 600;
+  text-align: center;
+}
+
+.loading p {
+  max-width: 180px;
 }
 
 .loading-icon {
-  color: #ffffff;
+  color: #ff7a3d;
   animation: pulse 1.4s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
     transform: scale(0.9);
   }

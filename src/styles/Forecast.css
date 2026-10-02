@@ -1,9 +1,8 @@
-
 .forecast-section {
   margin-bottom: 0.5rem;
 }
 
-.forecast-section-label{
+.forecast-section-label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -11,6 +10,7 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2rem;
+  white-space: nowrap;
 }
 
 .forecast-list {
@@ -25,5 +25,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     overflow-x: visible;
+  }
+
+  .forecast-section-label {
+    font-size: 1.2rem;
   }
 }

@@ -1,4 +1,3 @@
-
 .forecast-card {
   flex: 0 0 auto;
   width: 100px;
@@ -20,7 +19,7 @@
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 0.6rem;
-  min-height: 1.6em; /* keeps cards aligned even if one condition wraps to 2 lines */
+  min-height: 1.6em; 
 }
 
 .forecast-temps {

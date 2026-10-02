@@ -183,7 +183,7 @@
   }
 } */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 .app {
   width: 100%;
@@ -195,19 +195,19 @@
   padding: 1.75rem;
   color: #ffffff;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  font-family: 'Montserrat', sans-serif;
-  margin: 3rem auto;
+  font-family: "Montserrat", sans-serif;
+  /* margin: 3rem auto; */
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   min-height: 100vh;
   background: url("/backgrounds/rainy.jpg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 10px auto 10px auto; */
+  padding: 10px;
 }
 
 body::before {
@@ -217,32 +217,32 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
   z-index: -1;
 }
 
 body.bg-sunny {
- background-image: url('./assets/bg-assets/sunny-bg.jpg');
+  background-image: url("./assets/bg-assets/sunny-bg.jpg");
 }
 
 body.bg-cloudy {
-  background-image: url('./assets/bg-assets/cloudy-bg.jpg');
+  background-image: url("./assets/bg-assets/cloudy-bg.jpg");
 }
 
 body.bg-rainy {
-  background-image: url('./assets/bg-assets/rainy-bg.jpg');
+  background-image: url("./assets/bg-assets/rainy-bg.jpg");
 }
 
 body.bg-snowy {
-  background-image: url('./assets/bg-assets/snowy-bg.jpg');
+  background-image: url("./assets/bg-assets/snowy-bg.jpg");
 }
 
 body.bg-foggy {
-  background-image: url('./assets/bg-assets/foggy-bg.jpg');
+  background-image: url("./assets/bg-assets/foggy-bg.jpg");
 }
 
 body.bg-thunderstorm {
-  background-image: url('./assets/bg-assets/stormyBg.jpg');
+  background-image: url("./assets/bg-assets/stormyBg.jpg");
 }
 
 .section-label {
@@ -259,6 +259,8 @@ body.bg-thunderstorm {
   color: #ff6b6b;
   text-align: center;
   margin: 1rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .weather-content-fade {
@@ -274,6 +276,61 @@ body.bg-thunderstorm {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.action-row {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap; /* add this */
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.unit-toggle {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-right: auto; /* pushes the other buttons to the right */
+}
+
+.unit-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.unit-btn.active {
+  background: #ff7a3d;
+  color: #ffffff;
+}
+
+.star-btn {
+  color: #ffd700;
 }
 
 @media (max-width: 380px) {
@@ -299,5 +356,10 @@ body.bg-thunderstorm {
 
   .stat-label {
     font-size: 0.65rem;
+  }
+
+  .current-weather-label,
+  .section-label {
+    font-size: 0.75rem;
   }
 }

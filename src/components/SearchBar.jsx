@@ -25,6 +25,37 @@ function SearchBar({ onLocationSelect }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const runSearch = async (searchItem) => {
+    setSearchLoading(true);
+    setSearchError(null);
+
+    try {
+      const locations = await searchLocations(searchItem);
+      setResults(locations);
+      setShowResults(true);
+    } catch (error) {
+      setSearchError(
+        error.message || "Something went wrong while searching...",
+      );
+      setResults([]);
+    } finally {
+      setSearchLoading(false);
+      setHasSearched(true);
+    }
+  };
+
+  useEffect(() => {
+    const trimmed = query.trim();
+
+    if (trimmed === "") return;
+
+    const timeoutId = setTimeout(() => {
+      runSearch(trimmed);
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [query]);
+
   const handleInputChange = (e) => {
     const value = e.target.value;
     setQuery(value);
@@ -45,28 +76,11 @@ function SearchBar({ onLocationSelect }) {
     setHasSearched(false);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
     const trimmed = query.trim();
     if (trimmed === "") return;
-
-    setSearchLoading(true);
-    setSearchError(null);
-
-    try {
-      const locations = await searchLocations(trimmed);
-      setResults(locations);
-      setShowResults(true);
-    } catch (error) {
-      setSearchError(
-        error.message || "Something went wrong while searching...",
-      );
-      setResults([]);
-    } finally {
-      setSearchLoading(false);
-      setHasSearched(true);
-    }
+    runSearch(trimmed);
   };
 
   const handleSelect = (location) => {
@@ -74,8 +88,40 @@ function SearchBar({ onLocationSelect }) {
     setResults([]);
     setQuery("");
     setShowResults(false);
-    setHasSearched(false)
+    setHasSearched(false);
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const trimmed = query.trim();
+  //   if (trimmed === "") return;
+
+  //   setSearchLoading(true);
+  //   setSearchError(null);
+
+  //   try {
+  //     const locations = await searchLocations(trimmed);
+  //     setResults(locations);
+  //     setShowResults(true);
+  //   } catch (error) {
+  //     setSearchError(
+  //       error.message || "Something went wrong while searching...",
+  //     );
+  //     setResults([]);
+  //   } finally {
+  //     setSearchLoading(false);
+  //     setHasSearched(true);
+  //   }
+  // };
+
+  // const handleSelect = (location) => {
+  //   onLocationSelect(location);
+  //   setResults([]);
+  //   setQuery("");
+  //   setShowResults(false);
+  //   setHasSearched(false)
+  // };
 
   return (
     <div className="search-container" ref={containerRef}>
@@ -103,10 +149,7 @@ function SearchBar({ onLocationSelect }) {
         !searchError &&
         showResults &&
         results.length === 0 &&
-        hasSearched && <p className="no-location-text">No locations found.</p>
-    }
-
-
+        hasSearched && <p className="no-location-text">No locations found.</p>}
 
       {showResults && results.length > 0 && (
         <ul className="search-results-container">

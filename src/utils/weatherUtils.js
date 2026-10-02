@@ -22,6 +22,13 @@ const WEATHER_CODE = {
   99: "Thunderstorm with heavy hail",
 };
 
+function convertTemperature(tempCelsius, unit) {
+  if (unit === "F") {
+    return (tempCelsius * 9) / 5 + 32;
+  }
+  return tempCelsius;
+}
+
 export function getWeatherCategory(code) {
   if (code === 0 || code === 1) return "sunny";
   if (code === 2 || code === 3) return "cloudy";
@@ -30,32 +37,32 @@ export function getWeatherCategory(code) {
   if (code >= 71 && code <= 77) return "snowy";
   if (code >= 80 && code <= 82) return "rainy";
   if (code >= 95) return "thunderstorm";
-  return "cloudy"; 
+  return "cloudy";
 }
-
 
 export function getWeatherDescription(code) {
-    return WEATHER_CODE[code] || "Unknown Condition";
+  return WEATHER_CODE[code] || "Unknown Condition";
 }
 
-export function formatTemperature(temp) {
-    return `${Math.round(temp)}°C`
+export function formatTemperature(tempCelsius, unit = "C") {
+  const converted = convertTemperature(tempCelsius, unit);
+  return `${Math.round(converted)}°${unit}`;
 }
 
 export function formatDate(dateStr) {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString("en-us", {
-        weekday: "short",
-        month: "short",
-        day: "numeric",
-    });
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("en-us", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  });
 }
 
 export function transformDailyForecast(daily) {
-    return daily.time.map((date, index) => ({
-        date: date,
-        weatherCode: daily.weathercode[index],
-        maxTemp: daily.temperature_2m_max[index],
-        minTemp: daily.temperature_2m_min[index]
-    }))
+  return daily.time.map((date, index) => ({
+    date: date,
+    weatherCode: daily.weathercode[index],
+    maxTemp: daily.temperature_2m_max[index],
+    minTemp: daily.temperature_2m_min[index],
+  }));
 }

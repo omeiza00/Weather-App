@@ -1,0 +1,21 @@
+.favorites-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.favorite-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.favorite-chip:hover {
+  background: rgba(255, 122, 61, 0.2);
+}

@@ -119,6 +119,14 @@ code {
   box-sizing: border-box;
 }
 
+body, html {
+  overflow-x: hidden;
+}
+
+#root {
+  min-width: 0; /* ← add this */
+}
+
 /* body {
   font-family: 'Montserrat', sans-serif;
   min-height: 100vh;
