@@ -196,13 +196,11 @@
   color: #ffffff;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   font-family: "Montserrat", sans-serif;
-  /* margin: 3rem auto; */
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;
-  /* background: url("/backgrounds/rainy.jpg") no-repeat center center fixed; */
   background-size: cover;
   display: flex;
   justify-content: center;
