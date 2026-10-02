@@ -202,7 +202,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;
-  background: url("/backgrounds/rainy.jpg") no-repeat center center fixed;
+  /* background: url("/backgrounds/rainy.jpg") no-repeat center center fixed; */
   background-size: cover;
   display: flex;
   justify-content: center;

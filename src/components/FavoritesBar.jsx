@@ -1,4 +1,4 @@
-import "../styles/FavoritesBar.css";
+import '../styles/FavoritesBar.css'
 
 function FavoritesBar({ favorites, onSelect }) {
   return (
