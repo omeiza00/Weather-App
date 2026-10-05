@@ -82,4 +82,35 @@
   .current-weather-label {
     font-size: 1.2rem;
   }
+
+  .weather-status-details {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .status-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .status-detail:last-child {
+    border-bottom: none;
+  }
+
+  .status-detail-value {
+    min-height: auto; 
+    font-size: 0.85rem;
+  }
+
+  .status-detail-label {
+    order: -1; 
+  }
 }
+
+/* @media (max-width: 380px) {
+  
+} */
