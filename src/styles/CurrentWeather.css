@@ -38,14 +38,21 @@
 
 .weather-status-details {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(75px, 1fr)); */
+    grid-template-columns: 1fr;
   gap: 0.75rem 0.5rem;
   align-items: center;
 }
 
 .status-detail {
   flex: 1;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .status-detail-value {
@@ -56,6 +63,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+    min-height: auto; 
 }
 
 .location-value {
@@ -65,8 +73,10 @@
 }
 
 .status-detail-label {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
+      order: -1; 
+
 }
 
 .condition-icon {
@@ -75,9 +85,9 @@
 }
 
 @media (max-width: 480px) {
-  .weather-status-details {
+  /* .weather-status-details {
     grid-template-columns: repeat(2, 1fr);
-  }
+  } */
 
   .current-weather-label {
     font-size: 1.2rem;

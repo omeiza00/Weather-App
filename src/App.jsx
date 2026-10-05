@@ -10,9 +10,9 @@ import {
 import {
   ArrowClockwiseIcon,
   NavigationArrowIcon,
-  StarIcon,
+  // StarIcon,
 } from "@phosphor-icons/react";
-import FavoritesBar from "./components/FavoritesBar";
+// import FavoritesBar from "./components/FavoritesBar";
 
 import Loading from "./components/Loading";
 import CurrentWeather from "./components/CurrentWeather";
@@ -32,54 +32,54 @@ function App() {
   const [geoLocationName, setGeoLocationName] = useState("");
   const [locationSource, setLocationSource] = useState("geo");
   const [unit, setUnit] = useState("C");
-  const [favorites, setFavorites] = useState(() => {
-    const stored = localStorage.getItem("weatherAppFavorites");
-    return stored ? JSON.parse(stored) : [];
-  });
+  // const [favorites, setFavorites] = useState(() => {
+  //   const stored = localStorage.getItem("weatherAppFavorites");
+  //   return stored ? JSON.parse(stored) : [];
+  // });
 
-  useEffect(() => {
-    localStorage.setItem("weatherAppFavorites", JSON.stringify(favorites));
-  }, [favorites]);
+  // useEffect(() => {
+  //   localStorage.setItem("weatherAppFavorites", JSON.stringify(favorites));
+  // }, [favorites]);
 
-  const isFavorite = currentCoords
-    ? favorites.some(
-        (fav) =>
-          fav.latitude === currentCoords.latitude &&
-          fav.longitude === currentCoords.longitude,
-      )
-    : false;
+  // const isFavorite = currentCoords
+  //   ? favorites.some(
+  //       (fav) =>
+  //         fav.latitude === currentCoords.latitude &&
+  //         fav.longitude === currentCoords.longitude,
+  //     )
+  //   : false;
 
-  const toggleFavorite = () => {
-    if (!currentCoords) return;
+  // const toggleFavorite = () => {
+  //   if (!currentCoords) return;
 
-    if (isFavorite) {
-      // Remove it — keep every favorite EXCEPT the one matching current coords
-      setFavorites(
-        favorites.filter(
-          (fav) =>
-            !(
-              fav.latitude === currentCoords.latitude &&
-              fav.longitude === currentCoords.longitude
-            ),
-        ),
-      );
-    } else {
-      // Add it
-      setFavorites([
-        ...favorites,
-        {
-          name: locationName,
-          latitude: currentCoords.latitude,
-          longitude: currentCoords.longitude,
-        },
-      ]);
-    }
-  };
+  //   if (isFavorite) {
+  //     // Remove it — keep every favorite EXCEPT the one matching current coords
+  //     setFavorites(
+  //       favorites.filter(
+  //         (fav) =>
+  //           !(
+  //             fav.latitude === currentCoords.latitude &&
+  //             fav.longitude === currentCoords.longitude
+  //           ),
+  //       ),
+  //     );
+  //   } else {
+  //     // Add it
+  //     setFavorites([
+  //       ...favorites,
+  //       {
+  //         name: locationName,
+  //         latitude: currentCoords.latitude,
+  //         longitude: currentCoords.longitude,
+  //       },
+  //     ]);
+  //   }
+  // };
 
-  const handleFavoriteSelect = (favorite) => {
-    setLocationSource("search"); // treat it like a searched location
-    loadWeather(favorite.latitude, favorite.longitude, favorite.name);
-  };
+  // const handleFavoriteSelect = (favorite) => {
+  //   setLocationSource("search"); // treat it like a searched location
+  //   loadWeather(favorite.latitude, favorite.longitude, favorite.name);
+  // };
 
   useEffect(() => {
     if (!weatherData) return;
@@ -190,9 +190,9 @@ function App() {
               </button>
             </div>
 
-            <button className="action-btn star-btn" onClick={toggleFavorite}>
+            {/* <button className="action-btn star-btn" onClick={toggleFavorite}>
               <StarIcon size={16} weight={isFavorite ? "fill" : "bold"} />
-            </button>
+            </button> */}
 
             {locationSource === "search" && geoCoords && (
               <button className="action-btn" onClick={handleUseMyLocation}>
@@ -205,12 +205,12 @@ function App() {
             </button>
           </div>
 
-          {favorites.length > 0 && (
+          {/* {favorites.length > 0 && (
             <FavoritesBar
               favorites={favorites}
               onSelect={handleFavoriteSelect}
             />
-          )}
+          )} */}
 
           <CurrentWeather
             weather={weatherData.current}
