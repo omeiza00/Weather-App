@@ -14,8 +14,8 @@ function ForecastCard({ date, maxTemp, minTemp, weatherCode, unit }) {
       <p className="forecast-condition">{getWeatherDescription(weatherCode)}</p>
 
       <div className="forecast-temps">
-        <span className="temp-max">H: {formatTemperature(maxTemp, unit)}</span>
-        <span className="temp-min">L: {formatTemperature(minTemp, unit)}</span>
+        <span className="temp-max">High: {formatTemperature(maxTemp, unit)}</span>
+        <span className="temp-min">Low: {formatTemperature(minTemp, unit)}</span>
       </div>
     </div>
   );

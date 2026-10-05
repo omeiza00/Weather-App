@@ -315,7 +315,7 @@ body.bg-thunderstorm {
   border: none;
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.75rem;
-  padding: 0.4rem 0.7rem;
+  padding: 0.4rem 0.9rem;
   cursor: pointer;
   transition:
     background-color 0.2s ease,
